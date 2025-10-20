@@ -95,3 +95,79 @@ body{
   .logo span{ font-size:16px; }
   .title{ font-size:14px; }
 }
+
+/* --- Recent list card --- */
+.card {
+  background: var(--panel);
+  padding: 16px;
+  margin: 14px 0;
+}
+
+.card h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #5a341a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge {
+  margin-left: auto;
+  padding: 6px 14px;
+  background: #ffe9d7;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  white-space: nowrap;     /* <-- prevents line break */
+  box-shadow: 0 2px 0 var(--shadow);
+}
+
+.recent {
+  display: grid;
+  gap: 12px;
+}
+
+/* Each pomodoro row */
+.recent .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+  border: 3px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 0 var(--shadow);
+}
+
+/* Left side content */
+.row .left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.row .emoji {
+  font-size: 22px;
+}
+
+.row .title {
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+.row .meta {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* Right side minutes */
+.row .mins {
+  font-size: 22px;
+  letter-spacing: 1px;
+}
