@@ -171,3 +171,40 @@ body{
   font-size: 22px;
   letter-spacing: 1px;
 }
+
+/* --- Favourite Pomodoro --- */
+.fav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+  border: 2px dashed var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.fav-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fav-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.fav-meta {
+  font-size: 13px;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+}
+
+.fav-star {
+  font-size: 22px;
+  color: #ffcc45; /* warm yellow star */
+  filter: drop-shadow(0 1px 0 #d9a33a);
+}
+
