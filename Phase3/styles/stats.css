@@ -90,3 +90,8 @@ body{
   font-size:16px;
 }
 
+/* small screens */
+@media (max-width:360px){
+  .logo span{ font-size:16px; }
+  .title{ font-size:14px; }
+}
