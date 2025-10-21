@@ -125,3 +125,11 @@ body {
   justify-content: space-between;
   font-family: "Pixelify Sans", sans-serif;
 }
+
+label,
+.form-label,
+.form-check-label {
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 10.5px;
+  color: #3a3a3a;
+}
