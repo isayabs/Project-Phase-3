@@ -78,9 +78,9 @@
       </section>
 
       <!-- Main Content -->
-      <main class="main-content flex-grow-1 p-3 rounded">
+      <main class="main-content flex-grow-1 p-3">
         <div class="mb-3">
-          <label for="newTaskInput" class="form-label text-md fw-bold"
+          <label for="newTaskInput" class="form-label fs-4 fw-bold"
             >Task Name</label
           >
           <div class="d-flex mb-3">
@@ -95,15 +95,18 @@
         </div>
 
         <div class="tasks-section mb-3">
-          <h5>Tasks</h5>
+          <h5 class="fs-4 fw-bold">Current Tasks</h5>
           <ul id="tasksList" class="list-group"></ul>
         </div>
 
-        <div class="completed-section">
-          <h5>Completed</h5>
+        <div class="completed-section mb-3">
+          <h5 class="fs-4 fw-bold">Completed</h5>
           <ul id="completedList" class="list-group mb-2"></ul>
-          <button id="clearCompletedBtn" class="btn btn-danger btn-sm w-100">
-            Clear all
+          <button
+            id="clearCompletedBtn"
+            class="btn btn-danger btn-lg w-100 mt-4 fw-bold fs-4"
+          >
+            Clear All Completed
           </button>
         </div>
       </main>
@@ -124,54 +127,109 @@
         collapse.addEventListener("hidden.bs.collapse", () => {
           toggler.src = toggler.dataset.close;
         });
-      });
 
-      const addTaskBtn = document.getElementById("addTaskBtn");
-      const newTaskInput = document.getElementById("newTaskInput");
-      const tasksList = document.getElementById("tasksList");
-      const completedList = document.getElementById("completedList");
-      const clearCompletedBtn = document.getElementById("clearCompletedBtn");
+        // Task logic
+        const addTaskBtn = document.getElementById("addTaskBtn");
+        const newTaskInput = document.getElementById("newTaskInput");
+        const tasksList = document.getElementById("tasksList");
+        const completedList = document.getElementById("completedList");
+        const clearCompletedBtn = document.getElementById("clearCompletedBtn");
 
-      // Add new task
-      addTaskBtn.addEventListener("click", () => {
-        const taskName = newTaskInput.value.trim();
-        if (!taskName) return;
+        // Empty state placeholders
+        const emptyTasksMsg = document.createElement("li");
+        emptyTasksMsg.textContent = "No tasks yet.";
+        emptyTasksMsg.classList.add(
+          "list-group-item",
+          "text-center",
+          "text-muted",
+          "fst-italic"
+        );
 
-        const li = document.createElement("li");
-        li.className = "list-group-item";
+        const emptyCompletedMsg = document.createElement("li");
+        emptyCompletedMsg.textContent = "No completed tasks yet.";
+        emptyCompletedMsg.classList.add(
+          "list-group-item",
+          "text-center",
+          "text-muted",
+          "fst-italic"
+        );
 
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.className = "form-check-input me-2";
+        tasksList.appendChild(emptyTasksMsg);
+        completedList.appendChild(emptyCompletedMsg);
 
-        const span = document.createElement("span");
-        span.textContent = taskName;
+        // Add Task
+        addTaskBtn.addEventListener("click", () => {
+          const taskName = newTaskInput.value.trim();
+          if (!taskName) return;
 
-        checkbox.addEventListener("change", () => {
-          if (checkbox.checked) {
-            tasksList.removeChild(li);
-            completedList.appendChild(li);
-            li.appendChild(deleteBtn);
+          if (tasksList.contains(emptyTasksMsg)) {
+            tasksList.removeChild(emptyTasksMsg);
           }
+
+          const li = document.createElement("li");
+          li.className =
+            "list-group-item d-flex align-items-center justify-content-between";
+
+          const leftSide = document.createElement("div");
+          leftSide.className = "d-flex align-items-center";
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.className = "form-check-input me-2";
+
+          const span = document.createElement("span");
+          span.textContent = taskName;
+
+          leftSide.appendChild(checkbox);
+          leftSide.appendChild(span);
+          li.appendChild(leftSide);
+
+          tasksList.appendChild(li);
+          newTaskInput.value = "";
+
+          // Move to completed when checked
+          checkbox.addEventListener("change", () => {
+            if (checkbox.checked) {
+              tasksList.removeChild(li);
+
+              if (!tasksList.children.length) {
+                tasksList.appendChild(emptyTasksMsg);
+              }
+
+              if (completedList.contains(emptyCompletedMsg)) {
+                completedList.removeChild(emptyCompletedMsg);
+              }
+
+              const completedItem = document.createElement("li");
+              completedItem.className =
+                "list-group-item d-flex align-items-center justify-content-between";
+
+              const text = document.createElement("span");
+              text.textContent = taskName;
+
+              const deleteBtn = document.createElement("button");
+              deleteBtn.className = "generic-button ms-2";
+              deleteBtn.textContent = "Delete";
+
+              deleteBtn.addEventListener("click", () => {
+                completedList.removeChild(completedItem);
+                if (!completedList.children.length) {
+                  completedList.appendChild(emptyCompletedMsg);
+                }
+              });
+
+              completedItem.appendChild(text);
+              completedItem.appendChild(deleteBtn);
+              completedList.appendChild(completedItem);
+            }
+          });
         });
 
-        const deleteBtn = document.createElement("button");
-        deleteBtn.className = "generic-button ms-2";
-        deleteBtn.textContent = "Delete";
-        deleteBtn.addEventListener("click", () => {
-          completedList.removeChild(li);
+        // Clear all completed
+        clearCompletedBtn.addEventListener("click", () => {
+          completedList.innerHTML = "";
+          completedList.appendChild(emptyCompletedMsg);
         });
-
-        li.appendChild(checkbox);
-        li.appendChild(span);
-        tasksList.appendChild(li);
-
-        newTaskInput.value = "";
-      });
-
-      // Clear all completed
-      clearCompletedBtn.addEventListener("click", () => {
-        completedList.innerHTML = "";
       });
     </script>
   </body>
