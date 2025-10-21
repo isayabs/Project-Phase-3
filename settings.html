@@ -86,42 +86,41 @@
 
 <!-- Main Content -->
       <main class="main-content flex-grow-1 p-3 rounded">
-        <label for="shortBreakInput" class="form-label text-md fw-bold">Set short Break (5-10)</label>
-
-        <div class="input-group mb-3">
-          <input
-            type="number"
-            class="form-control"
-            id="shortBreakInput"
-            placeholder="Minutes"
-            min="5"
-            max="10"
-          />
-          <button class="btn btn-primary" type="button">Set</button>
-        </div>
-        <label for="defaultPomodoroInput" class="form-label text-md fw-bold">Set Default Pomodoro Break 25-50 mins</label>
+         <label for="defaultPomodoroInput" class="form-label text-md fw-bold">Set Default Pomodoro</label>
         <div class="input-group mb-3">
           <input
             type="number"
             class="form-control"
             id="defaultPomodoroInput"
-            placeholder="Minutes"
+            placeholder="25-50 minutes"
             min="25"
             max="50"
           />
-          <button class="btn btn-primary" type="button">Set</button>
+          <button class="generic-button" type="setbutton">Set</button>
         </div>
-        <label for="longBreakInput" class="form-label text-md fw-bold">Set Long Break 15-20 mins</label>
+        <label for="shortBreakInput" class="form-label text-md fw-bold">Set Short Break</label>
+        <div class="input-group mb-3 ">
+          <input
+            type="number"
+            class="form-control"
+            id="shortBreakInput"
+            placeholder="5-10 minutes"
+            min="5"
+            max="10"
+          />
+          <button type="setbutton" class="generic-button">Set</button>
+        </div>
+        <label for="longBreakInput" class="form-label text-md fw-bold">Set Long Break</label>
         <div class="input-group mb-3">
           <input
             type="number"
             class="form-control"
             id="longBreakInput"
-            placeholder="Minutes"
+            placeholder="15-20 minutes"
             min="15"
             max="20"
           />
-          <button class="btn btn-primary" type="button">Set</button>
+          <button class="generic-button" type="setbutton">Set</button>
         </div>
         <!--Alarm sound-->
         <label for="alarmSoundInput" class="form-label text-md fw-bold">Select Alarm Sound</label>
@@ -157,5 +156,5 @@
         </div>
         <!--Help-->
         <div class="d-grid gap-2">
-          <button class="btn btn-secondary" type="button">Help & Support</button>
+          <button class="generic-button" type="button">Help & Support</button>
       </main>
