@@ -13,8 +13,8 @@ body {
   width: 100%;
   max-width: 420px;
   min-width: 320px;
-  min-height: 100vh;
-  max-height: auto;
+  min-height: 100svh;
+  height: auto;
   background-color: #ffe1bd;
   border-radius: 10px;
   margin: 20px auto;
@@ -50,7 +50,6 @@ body {
   padding-left: 5px;
   margin-bottom: 2px;
   border-radius: 4px;
-  font-size: 20px;
 }
 
 .nav-link:hover {
@@ -75,34 +74,34 @@ body {
 
 .main-content {
   flex-grow: 1;
-  background-image: url("assets/bg.png"); /* your background image */
+  background-image: url("../assets/bg.png"); /* your background image */
   background-size: cover;
   background-position: center;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #f4b871;
   display: flex;
   flex-direction: column;
-  border: 4px solid transparent;
-  border-radius: 12px;
 }
 
 .generic-button {
   background-color: #ffdede;
   color: #861d0a;
-  border-radius: 10px;
+  height: 35px;
+  border-radius: 5px;
   border-color: #f44527;
   border-width: 3px;
-  padding: 3px 15px 3px;
+  padding: 3px 5px;
   font-size: 18px;
   cursor: pointer;
 }
 
 .task-input {
-  height: 50px;
-  border: 3px solid #e7b983;
-  border-radius: 14px;
-  padding: 12px 14px;
-  box-shadow: 0 2px 0 #d49c63;
+  height: 35px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #f4b871;
   font-family: "Pixelify Sans", sans-serif;
-  font-size: 25px;
 }
 
 .task-input:focus {
@@ -120,18 +119,38 @@ body {
   color: white;
 }
 
-.list-group {
-  background: #fff;
-  border: 3px solid #e7b983;
-  border-radius: 25px;
-
-  box-shadow: 0 2px 0 #d49c63;
-}
-
 .list-group-item {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   font-family: "Pixelify Sans", sans-serif;
-  font-size: 20px;
+}
+
+input[type="number"] {
+  font-family: 'Press Start 2P', cursive; 
+}
+
+
+input[type="number"]::placeholder {
+  font-family: 'Press Start 2P', cursive; 
+  color: #5e5c5c;
+  font-size: 10px;
+}
+
+input[type="number"],
+select.form-select {
+  border-radius: 12px; 
+  border: 2px solid #f4b871;
+  padding: 6px 10px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+}
+
+#alarmSoundInput {
+  border-radius: 12px;
+  border: 2px solid #f4b871;
+  padding: 6px 10px;   
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;     
+  height: auto;       
 }
