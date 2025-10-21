@@ -74,7 +74,7 @@ body {
 
 .main-content {
   flex-grow: 1;
-  background-image: url("assets/bg.png"); /* your background image */
+  background-image: url("../assets/bg.png"); /* your background image */
   background-size: cover;
   background-position: center;
   border-width: 5px;
