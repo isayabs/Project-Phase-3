@@ -1,22 +1,8 @@
-:root {
-  --bg: #fad7b6;
-  --panel: #fff6e7;
-  --ink: #3e2723;
-  --accent: #ff8d6b;
-  --border: #e7b983;
-  --shadow: #d49c63;
-}
-
 html,
 body {
   margin: 0;
-  padding: 0;
   height: 100%;
   background-color: Black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
 }
 
 body {
@@ -25,14 +11,16 @@ body {
 
 .app {
   width: 100%;
-  max-width: 390px;
+  max-width: 420px;
   min-width: 320px;
+  min-height: 100svh;
   height: auto;
   background-color: #ffe1bd;
   border-radius: 10px;
   margin: 20px auto;
   display: flex;
   flex-direction: column;
+  padding: 12px;
 }
 
 .navbar-brand {
@@ -54,6 +42,7 @@ body {
   padding: 0;
   border: 4px solid transparent;
   border-radius: 12px;
+  margin-bottom: 12px;
 }
 
 .nav-link {
@@ -69,12 +58,13 @@ body {
 }
 
 .title {
-  padding: 14px;
+  padding: 10px;
   background: #fff6e7;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   border: 4px solid transparent;
   border-radius: 12px;
+  margin-bottom: 12px;
 }
 
 #menu-button {
