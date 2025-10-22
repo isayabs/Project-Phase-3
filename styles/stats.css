@@ -9,7 +9,7 @@
   --border:#E7B983;
   --shadow:#D49C63;
 
-  --tile: clamp(500px, 20vw, 220px);
+  --tile: clamp(520px, 50vw, 1300px);
 
   /* chart */
   --barH: 210px;     
@@ -40,7 +40,7 @@ body{
   background:var(--bg);
   padding:12px 12px 24px;
   box-sizing:border-box;
-  border-radius:20px;
+  border-radius:10px;
   overflow:hidden;
   box-shadow:0 4px 0 var(--shadow);
 }
