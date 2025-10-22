@@ -74,14 +74,13 @@ body {
 
 .main-content {
   flex-grow: 1;
-  background-image: url("../assets/bg.png"); /* your background image */
+  background-image: url("/assets/bg.png");
   background-size: cover;
   background-position: center;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #f4b871;
   display: flex;
   flex-direction: column;
+  border: 4px solid transparent;
+  border-radius: 12px;
 }
 
 .generic-button {
@@ -127,30 +126,29 @@ body {
 }
 
 input[type="number"] {
-  font-family: 'Press Start 2P', cursive; 
+  font-family: "Press Start 2P", cursive;
 }
 
-
 input[type="number"]::placeholder {
-  font-family: 'Press Start 2P', cursive; 
+  font-family: "Press Start 2P", cursive;
   color: #5e5c5c;
   font-size: 10px;
 }
 
 input[type="number"],
 select.form-select {
-  border-radius: 12px; 
+  border-radius: 12px;
   border: 2px solid #f4b871;
   padding: 6px 10px;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   font-size: 14px;
 }
 
 #alarmSoundInput {
   border-radius: 12px;
   border: 2px solid #f4b871;
-  padding: 6px 10px;   
-  font-family: 'Press Start 2P', cursive;
-  font-size: 10px;     
-  height: auto;       
+  padding: 6px 10px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+  height: auto;
 }

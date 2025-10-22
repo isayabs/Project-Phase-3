@@ -1,202 +1,235 @@
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tasks</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Press+Start+2P&display=swap" rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="./styles/styles.css" />
-</head>
+  <body>
+    <div class="app">
+      <nav class="navbar">
+        <div class="container flex-column ps-1">
+          <div class="d-flex align-items-center w-100">
+            <button
+              type="button"
+              id="menu-button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarMenu"
+              class="border-1 bg-transparent d-flex justify-content-center align-items-center"
+            >
+              <img
+                src="assets/hamburger-closed.svg"
+                class="menu-icon"
+                width="42"
+                height="42"
+                data-open="assets/hamburger-open.svg"
+                data-close="assets/hamburger-closed.svg"
+              />
+            </button>
 
-<body>
-  <div class="app">
-    <nav class="navbar">
-      <div class="container flex-column ps-1">
-        <div class="d-flex align-items-center w-100">
-          <button type="button" id="menu-button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-            class="border-1 bg-transparent d-flex justify-content-center align-items-center">
-            <img src="assets/hamburger-closed.svg" class="menu-icon" width="42" height="42"
-              data-open="assets/hamburger-open.svg" data-close="assets/hamburger-closed.svg" />
+            <a class="navbar-brand" href="home.html">
+              <img src="assets/logo1.png" width="57" height="57" class="ms-3" />
+              Appomodoro Timer
+            </a>
+          </div>
+
+          <div class="collapse w-100" id="navbarMenu">
+            <ul class="navbar-nav flex-column ms-0">
+              <li class="nav-item">
+                <a class="nav-link" href="timer.html">New Pomodoro</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">New Task</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="history.html">Stats / History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="settings.html">Settings</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section class="title">
+        <img
+          src="assets/newtasktomato.png"
+          alt="Task Icon"
+          width="50"
+          height="50"
+          class="me-2"
+        />
+        <strong>New Task</strong>
+      </section>
+      <main class="main-content flex-grow-1 p-3">
+        <div class="mb-3">
+          <label for="newTaskInput" class="form-label fs-4 fw-bold"
+            >Task Name</label
+          >
+          <div class="d-flex mb-3">
+            <input
+              type="text"
+              id="newTaskInput"
+              class="task-input form-control me-2"
+              placeholder="Enter task"
+            />
+            <button id="addTaskBtn" class="generic-button">Add</button>
+          </div>
+        </div>
+
+        <div class="tasks-section mb-3">
+          <h5 class="fs-4 fw-bold">Current Tasks</h5>
+          <ul id="tasksList" class="list-group"></ul>
+        </div>
+
+        <div class="completed-section mb-3">
+          <h5 class="fs-4 fw-bold">Completed</h5>
+          <ul id="completedList" class="list-group mb-2"></ul>
+          <button
+            id="clearCompletedBtn"
+            class="btn btn-danger btn-lg w-100 mt-4 fw-bold fs-4"
+          >
+            Clear All Completed
           </button>
-
-          <a class="navbar-brand" href="#Home">
-            <img src="assets/logo1.png" width="57" height="57" class="ms-3" />
-            Appomodoro Timer
-          </a>
         </div>
+      </main>
+    </div>
 
-        <div class="collapse w-100" id="navbarMenu">
-          <ul class="navbar-nav flex-column ms-0">
-            <li class="nav-item">
-              <a class="nav-link" href="timer.html">New Pomodoro</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">New Task</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="history.html">Stats / History</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="settings.html">Settings</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <section class="title">
-      <img src="assets/newtasktomato.png" alt="Task Icon" width="50" height="50" class="me-2" />
-      <strong>New Task</strong>
-    </section>
-    <main class="main-content flex-grow-1 p-3">
-      <div class="mb-3">
-        <label for="newTaskInput" class="form-label fs-4 fw-bold">Task Name</label>
-        <div class="d-flex mb-3">
-          <input type="text" id="newTaskInput" class="task-input form-control me-2" placeholder="Enter task" />
-          <button id="addTaskBtn" class="generic-button">Add</button>
-        </div>
-      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-      <div class="tasks-section mb-3">
-        <h5 class="fs-4 fw-bold">Current Tasks</h5>
-        <ul id="tasksList" class="list-group"></ul>
-      </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggler = document.querySelector(".menu-icon");
 
-      <div class="completed-section mb-3">
-        <h5 class="fs-4 fw-bold">Completed</h5>
-        <ul id="completedList" class="list-group mb-2"></ul>
-        <button id="clearCompletedBtn" class="btn btn-danger btn-lg w-100 mt-4 fw-bold fs-4">
-          Clear All Completed
-        </button>
-      </div>
-    </main>
-  </div>
+        const collapse = document.getElementById("navbarMenu");
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        collapse.addEventListener("shown.bs.collapse", () => {
+          toggler.src = toggler.dataset.open;
+        });
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggler = document.querySelector(".menu-icon");
+        collapse.addEventListener("hidden.bs.collapse", () => {
+          toggler.src = toggler.dataset.close;
+        });
 
-      const collapse = document.getElementById("navbarMenu");
+        // Task logic
+        const addTaskBtn = document.getElementById("addTaskBtn");
+        const newTaskInput = document.getElementById("newTaskInput");
+        const tasksList = document.getElementById("tasksList");
+        const completedList = document.getElementById("completedList");
+        const clearCompletedBtn = document.getElementById("clearCompletedBtn");
 
-      collapse.addEventListener("shown.bs.collapse", () => {
-        toggler.src = toggler.dataset.open;
-      });
+        // Empty state placeholders
+        const emptyTasksMsg = document.createElement("li");
+        emptyTasksMsg.textContent = "No tasks yet.";
+        emptyTasksMsg.classList.add(
+          "list-group-item",
+          "text-center",
+          "text-muted",
+          "fst-italic"
+        );
 
-      collapse.addEventListener("hidden.bs.collapse", () => {
-        toggler.src = toggler.dataset.close;
-      });
+        const emptyCompletedMsg = document.createElement("li");
+        emptyCompletedMsg.textContent = "No completed tasks yet.";
+        emptyCompletedMsg.classList.add(
+          "list-group-item",
+          "text-center",
+          "text-muted",
+          "fst-italic"
+        );
 
-      // Task logic
-      const addTaskBtn = document.getElementById("addTaskBtn");
-      const newTaskInput = document.getElementById("newTaskInput");
-      const tasksList = document.getElementById("tasksList");
-      const completedList = document.getElementById("completedList");
-      const clearCompletedBtn = document.getElementById("clearCompletedBtn");
+        tasksList.appendChild(emptyTasksMsg);
+        completedList.appendChild(emptyCompletedMsg);
 
-      // Empty state placeholders
-      const emptyTasksMsg = document.createElement("li");
-      emptyTasksMsg.textContent = "No tasks yet.";
-      emptyTasksMsg.classList.add(
-        "list-group-item",
-        "text-center",
-        "text-muted",
-        "fst-italic"
-      );
+        // Add Task
+        addTaskBtn.addEventListener("click", () => {
+          const taskName = newTaskInput.value.trim();
+          if (!taskName) return;
 
-      const emptyCompletedMsg = document.createElement("li");
-      emptyCompletedMsg.textContent = "No completed tasks yet.";
-      emptyCompletedMsg.classList.add(
-        "list-group-item",
-        "text-center",
-        "text-muted",
-        "fst-italic"
-      );
-
-      tasksList.appendChild(emptyTasksMsg);
-      completedList.appendChild(emptyCompletedMsg);
-
-      // Add Task
-      addTaskBtn.addEventListener("click", () => {
-        const taskName = newTaskInput.value.trim();
-        if (!taskName) return;
-
-        if (tasksList.contains(emptyTasksMsg)) {
-          tasksList.removeChild(emptyTasksMsg);
-        }
-
-        const li = document.createElement("li");
-        li.className =
-          "list-group-item d-flex align-items-center justify-content-between";
-
-        const leftSide = document.createElement("div");
-        leftSide.className = "d-flex align-items-center";
-
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.className = "form-check-input me-2";
-
-        const span = document.createElement("span");
-        span.textContent = taskName;
-
-        leftSide.appendChild(checkbox);
-        leftSide.appendChild(span);
-        li.appendChild(leftSide);
-
-        tasksList.appendChild(li);
-        newTaskInput.value = "";
-
-        // Move to completed when checked
-        checkbox.addEventListener("change", () => {
-          if (checkbox.checked) {
-            tasksList.removeChild(li);
-
-            if (!tasksList.children.length) {
-              tasksList.appendChild(emptyTasksMsg);
-            }
-
-            if (completedList.contains(emptyCompletedMsg)) {
-              completedList.removeChild(emptyCompletedMsg);
-            }
-
-            const completedItem = document.createElement("li");
-            completedItem.className =
-              "list-group-item d-flex align-items-center justify-content-between";
-
-            const text = document.createElement("span");
-            text.textContent = taskName;
-
-            const deleteBtn = document.createElement("button");
-            deleteBtn.className = "generic-button ms-2";
-            deleteBtn.textContent = "Delete";
-
-            deleteBtn.addEventListener("click", () => {
-              completedList.removeChild(completedItem);
-              if (!completedList.children.length) {
-                completedList.appendChild(emptyCompletedMsg);
-              }
-            });
-
-            completedItem.appendChild(text);
-            completedItem.appendChild(deleteBtn);
-            completedList.appendChild(completedItem);
+          if (tasksList.contains(emptyTasksMsg)) {
+            tasksList.removeChild(emptyTasksMsg);
           }
+
+          const li = document.createElement("li");
+          li.className =
+            "list-group-item d-flex align-items-center justify-content-between";
+
+          const leftSide = document.createElement("div");
+          leftSide.className = "d-flex align-items-center";
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.className = "form-check-input me-2";
+
+          const span = document.createElement("span");
+          span.textContent = taskName;
+
+          leftSide.appendChild(checkbox);
+          leftSide.appendChild(span);
+          li.appendChild(leftSide);
+
+          tasksList.appendChild(li);
+          newTaskInput.value = "";
+
+          // Move to completed when checked
+          checkbox.addEventListener("change", () => {
+            if (checkbox.checked) {
+              tasksList.removeChild(li);
+
+              if (!tasksList.children.length) {
+                tasksList.appendChild(emptyTasksMsg);
+              }
+
+              if (completedList.contains(emptyCompletedMsg)) {
+                completedList.removeChild(emptyCompletedMsg);
+              }
+
+              const completedItem = document.createElement("li");
+              completedItem.className =
+                "list-group-item d-flex align-items-center justify-content-between";
+
+              const text = document.createElement("span");
+              text.textContent = taskName;
+
+              const deleteBtn = document.createElement("button");
+              deleteBtn.className = "generic-button ms-2";
+              deleteBtn.textContent = "Delete";
+
+              deleteBtn.addEventListener("click", () => {
+                completedList.removeChild(completedItem);
+                if (!completedList.children.length) {
+                  completedList.appendChild(emptyCompletedMsg);
+                }
+              });
+
+              completedItem.appendChild(text);
+              completedItem.appendChild(deleteBtn);
+              completedList.appendChild(completedItem);
+            }
+          });
+        });
+
+        // Clear all completed
+        clearCompletedBtn.addEventListener("click", () => {
+          completedList.innerHTML = "";
+          completedList.appendChild(emptyCompletedMsg);
         });
       });
-
-      // Clear all completed
-      clearCompletedBtn.addEventListener("click", () => {
-        completedList.innerHTML = "";
-        completedList.appendChild(emptyCompletedMsg);
-      });
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
